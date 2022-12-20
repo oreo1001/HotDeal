@@ -12,7 +12,7 @@ public class HomeController {
 
     @GetMapping("test")
     public String test() {
-        return "테스트입니다";
+        return "테스트입니다1=123123123";
     }
 
     @GetMapping("test2")

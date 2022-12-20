@@ -1,7 +1,12 @@
 package HotDeal.HotDeal.Repository;
 
-import HotDeal.HotDeal.Domain.Products;
+import HotDeal.HotDeal.Domain.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ProductsRepository extends MongoRepository<Products, String> {
+import java.util.List;
+
+public interface ProductsRepository extends MongoRepository<Product, String> {
+
+    List<Product> findByName(String name);
+
 }

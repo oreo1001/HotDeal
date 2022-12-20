@@ -1,14 +1,17 @@
 package HotDeal.HotDeal.Controller;
 
+import HotDeal.HotDeal.Service.HomeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("home")
 @RequiredArgsConstructor
 public class HomeController {
+
+    private final HomeService homeService;
 
     @GetMapping("test")
     public String test() {
@@ -17,5 +20,10 @@ public class HomeController {
 
     @GetMapping("test2")
     public String test2() { return "깃헙 텍스트"; }
+
+    @PostMapping("insert")
+    public String insertTest(@RequestBody Map<String, Object> map) {
+        return homeService.insertTest((String) map.get("name"));
+    }
 
 }

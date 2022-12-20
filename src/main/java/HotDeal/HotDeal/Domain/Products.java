@@ -1,7 +1,6 @@
-package HotDeal.HotDeal.domain;
+package HotDeal.HotDeal.Domain;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data

@@ -14,4 +14,8 @@ public class HomeController {
     public String test() {
         return "테스트입니다";
     }
+
+    @GetMapping("test2")
+    public String test2() { return "깃헙 텍스트"; }
+
 }

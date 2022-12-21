@@ -1,7 +1,7 @@
 package HotDeal.HotDeal.Controller;
 
 import HotDeal.HotDeal.Domain.Product2;
-import HotDeal.HotDeal.Service.HomeService;
+import HotDeal.HotDeal.Repository.ProductsRepository2;
 import HotDeal.HotDeal.Service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

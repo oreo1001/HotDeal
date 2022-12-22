@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface ProductsRepository extends MongoRepository<Product, String> {
-    List<Product> findByName(String name);
+public interface ProductsRepository2 extends MongoRepository<Product2, String> {
+
+    List<Product2> findByName(String name);
+    List<Product2> findAll();
 }

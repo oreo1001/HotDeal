@@ -1,9 +1,12 @@
 package HotDeal.HotDeal.Controller;
 
+import HotDeal.HotDeal.Domain.Product2;
+import HotDeal.HotDeal.Repository.ProductsRepository2;
 import HotDeal.HotDeal.Service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -25,5 +28,4 @@ public class HomeController {
     public String insertTest(@RequestBody Map<String, Object> map) {
         return homeService.insertTest((String) map.get("name"));
     }
-
 }

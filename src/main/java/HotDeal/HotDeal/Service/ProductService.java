@@ -23,10 +23,15 @@ public class ProductService {
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
     public ResponseEntity<Map<String, Object>> getAllProducts() {
-        Map<String, Object> responseJson = new HashMap<>();
         // TODO key : "result" / value : "모든 제품들 배열"
+        Map<String, Object> responseJson = new HashMap<>();
         responseJson.put("result",productRepository.findAll());
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
+    /*
+    public ResponseEntity<Map<String, Object>> getProductByCategory(String Category){
+
+    }
+    */
 }

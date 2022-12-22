@@ -27,21 +27,18 @@ public class CategoryController {
     /*
     @GetMapping("{categoryName}/list")
     public ResponseEntity<Map<String, Object>> getCategoryList (@PathVariable String categoryName) {
-        return productService.get
+        return productService.getProductByCategory(categoryName);
     }
     TODO
     */
 
     @PostMapping("insert")
     public ResponseEntity<Map<String,Object>> insertCategory(@RequestBody Category category) {
-        return categoryService.insert(category);
+        return categoryService.insertCategory(category);
     }
-    /*
-    @GetMapping("category/name")
+
+    @GetMapping("name")
     public ResponseEntity<Map<String, Object>> getCategoryNames() {
-
+        return categoryService.getAllCategory();
     }
-    TODO
-    */
-
 }

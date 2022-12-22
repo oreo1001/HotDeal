@@ -18,10 +18,16 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public ResponseEntity<Map<String,Object>> insert(Category category){
+    public ResponseEntity<Map<String, Object>> insertCategory(Category category) {
         Map<String, Object> responseJson = new HashMap<>();
         responseJson.put("Message", "category db에 잘들어간듯!");
         categoryRepository.insert(category);
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
+    }
+
+    public ResponseEntity<Map<String, Object>> getAllCategory() {
+        Map<String, Object> responseJson = new HashMap<>();
+        responseJson.put("result", categoryRepository.findAll());
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 }

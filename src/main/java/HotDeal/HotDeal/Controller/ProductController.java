@@ -19,10 +19,9 @@ public class ProductController {
     public ResponseEntity<Map<String,Object>> insertProduct (@RequestBody Product product){
         return productService.insert(product);
     }
-    /*
+
     @PostMapping("{productId}/click")
     public ResponseEntity<Map<String, Object>> clickProduct (@PathVariable String productId) {
+        return productService.clickCount(productId);
     }
-    TODO
-    */
 }

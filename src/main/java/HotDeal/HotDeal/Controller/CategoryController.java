@@ -23,14 +23,10 @@ public class CategoryController {
         return productService.getAllProducts();
     }
 
-
-    /*
     @GetMapping("{categoryName}/list")
-    public ResponseEntity<Map<String, Object>> getCategoryList (@PathVariable String categoryName) {
+    public ResponseEntity<Map<String, Object>> getCategoryList (@PathVariable("categoryName") String categoryName) {
         return productService.getProductByCategory(categoryName);
     }
-    TODO
-    */
 
     @PostMapping("insert")
     public ResponseEntity<Map<String,Object>> insertCategory(@RequestBody Category category) {

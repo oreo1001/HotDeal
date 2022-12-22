@@ -23,15 +23,22 @@ public class ProductService {
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
     public ResponseEntity<Map<String, Object>> getAllProducts() {
-        // TODO key : "result" / value : "모든 제품들 배열"
         Map<String, Object> responseJson = new HashMap<>();
         responseJson.put("result",productRepository.findAll());
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
-    /*
-    public ResponseEntity<Map<String, Object>> getProductByCategory(String Category){
-
+    public ResponseEntity<Map<String, Object>> getProductByCategory(String categoryName){
+        Map<String, Object> responseJson = new HashMap<>();
+        responseJson.put("result",productRepository.findByCategoryName(categoryName));
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
-    */
+
+    public ResponseEntity<Map<String, Object>> clickCount(String productId){
+        Map<String, Object> responseJson = new HashMap<>();
+        System.out.println(productRepository.findAll());
+        System.out.println(productRepository.findById(productId));
+        responseJson.put("Message", "count 증가");
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
+    }
 }

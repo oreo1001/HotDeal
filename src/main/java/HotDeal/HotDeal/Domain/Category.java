@@ -5,16 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document(collection = "product")
-public class Product {
+@Document(collection = "category")
+public class Category {
 
     @Id
     private String id;
     private String name;
-    private Double price;
-    private Double discountRate;
-    private String imageUrl;
-    private String categoryName;
-    private String link;
-    private int click;
 }

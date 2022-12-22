@@ -1,29 +1,28 @@
 package HotDeal.HotDeal.Service;
 
-import HotDeal.HotDeal.Domain.Product2;
-import HotDeal.HotDeal.Repository.ProductsRepository2;
+import HotDeal.HotDeal.Repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductsRepository2 productsRepository2;
+    private final ProductRepository productRepository;
 
-    public List<Product2> findList(){
-        return productsRepository2.findByName("namu");
+    public ResponseEntity<Map<String, Object>> getAllProducts() {
+        Map<String, Object> responseJson = new HashMap<>();
+
+
+        // TODO key : "result" / value : "모든 제품들 배열"
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
-    public List<Product2> findList2(){
-        return productsRepository2.findAll();
-    }
-
-    public void insertTest(String productId) {
-        Product2 product2 = new Product2();
-        product2.setName(productId);
-        productsRepository2.insert(product2);
-    }
 }

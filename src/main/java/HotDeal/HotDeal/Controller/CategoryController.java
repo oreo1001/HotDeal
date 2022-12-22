@@ -36,8 +36,8 @@ public class CategoryController {
     */
 
     @PostMapping("category/insert")
-    public void insertCategory(Category category) {
-        categoryService.insert(category);
+    public ResponseEntity<Map<String,Object>> insertCategory(Category category) {
+        return categoryService.insert(category);
     }
     /*
     @GetMapping("category/name")

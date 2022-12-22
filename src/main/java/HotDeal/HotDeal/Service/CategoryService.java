@@ -18,7 +18,9 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public void insert(Category category){
+    public ResponseEntity<Map<String,Object>> insert(Category category){
+        Map<String, Object> responseJson = new HashMap<>();
         categoryRepository.insert(category);
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 }

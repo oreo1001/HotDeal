@@ -18,6 +18,7 @@ public class ProductService {
 
     public ResponseEntity<Map<String, Object>> insert(Product product){
         Map<String, Object> responseJson = new HashMap<>();
+        responseJson.put("Message", "product db에 잘들어간듯!");
         productRepository.insert(product);
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }

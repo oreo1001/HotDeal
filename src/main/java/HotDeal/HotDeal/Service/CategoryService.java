@@ -20,6 +20,7 @@ public class CategoryService {
 
     public ResponseEntity<Map<String,Object>> insert(Category category){
         Map<String, Object> responseJson = new HashMap<>();
+        responseJson.put("Message", "category db에 잘들어간듯!");
         categoryRepository.insert(category);
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }

@@ -5,10 +5,7 @@ import HotDeal.HotDeal.Service.CategoryService;
 import HotDeal.HotDeal.Service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -30,13 +27,13 @@ public class CategoryController {
     /*
     @GetMapping("{categoryName}/list")
     public ResponseEntity<Map<String, Object>> getCategoryList (@PathVariable String categoryName) {
-
+        return productService.get
     }
     TODO
     */
 
-    @PostMapping("category/insert")
-    public ResponseEntity<Map<String,Object>> insertCategory(Category category) {
+    @PostMapping("insert")
+    public ResponseEntity<Map<String,Object>> insertCategory(@RequestBody Category category) {
         return categoryService.insert(category);
     }
     /*

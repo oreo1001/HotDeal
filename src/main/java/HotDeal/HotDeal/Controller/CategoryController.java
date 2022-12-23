@@ -18,15 +18,14 @@ public class CategoryController {
     private final ProductService productService;
     private final CategoryService categoryService;
 
-
     @GetMapping("all")
     public ResponseEntity<Map<String, Object>> getAllProducts() {
         return productService.getAllProducts();
     }
 
     @GetMapping("{categoryName}/list")
-    public ResponseEntity<Map<String, Object>> getCategoryList(@PathVariable("categoryName") String categoryName) {
-        return productService.getProductByCategory(categoryName);
+    public ResponseEntity<Map<String, Object>> getProductsByCategory(@PathVariable("categoryName") String categoryName) {
+        return productService.getProductsByCategory(categoryName);
     }
 
     @PostMapping("save")
@@ -34,7 +33,7 @@ public class CategoryController {
         return categoryService.saveCategory(category);
     }
 
-    @GetMapping("name")
+    @GetMapping("names")
     public ResponseEntity<Map<String, Object>> getCategoryNames() {
         return categoryService.getAllCategory();
     }

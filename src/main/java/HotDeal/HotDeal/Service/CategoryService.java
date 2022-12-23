@@ -1,9 +1,7 @@
 package HotDeal.HotDeal.Service;
 
 import HotDeal.HotDeal.Domain.Category;
-import HotDeal.HotDeal.Domain.Product;
 import HotDeal.HotDeal.Repository.CategoryRepository;
-import HotDeal.HotDeal.Repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

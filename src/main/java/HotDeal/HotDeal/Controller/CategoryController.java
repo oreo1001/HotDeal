@@ -25,12 +25,12 @@ public class CategoryController {
     }
 
     @GetMapping("{categoryName}/list")
-    public ResponseEntity<Map<String, Object>> getCategoryList (@PathVariable("categoryName") String categoryName) {
+    public ResponseEntity<Map<String, Object>> getCategoryList(@PathVariable("categoryName") String categoryName) {
         return productService.getProductByCategory(categoryName);
     }
 
     @PostMapping("save")
-    public ResponseEntity<Map<String,Object>> saveCategory(@RequestBody @Valid Category category) {
+    public ResponseEntity<Map<String, Object>> saveCategory(@RequestBody @Valid Category category) {
         return categoryService.saveCategory(category);
     }
 

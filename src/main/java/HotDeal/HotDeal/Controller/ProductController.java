@@ -17,12 +17,12 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("save")
-    public ResponseEntity<Map<String,Object>> saveProduct (@RequestBody @Valid Product product){
+    public ResponseEntity<Map<String, Object>> saveProduct(@RequestBody @Valid Product product) {
         return productService.save(product);
     }
 
     @PostMapping("{productId}/click")
-    public ResponseEntity<Map<String, Object>> clickProduct (@PathVariable String productId) {
+    public ResponseEntity<Map<String, Object>> clickProduct(@PathVariable String productId) {
         return productService.clickCount(productId);
     }
 }

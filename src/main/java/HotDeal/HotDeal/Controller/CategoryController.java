@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @RestController
@@ -29,7 +30,7 @@ public class CategoryController {
     }
 
     @PostMapping("insert")
-    public ResponseEntity<Map<String,Object>> insertCategory(@RequestBody Category category) {
+    public ResponseEntity<Map<String,Object>> insertCategory(@RequestBody @Valid Category category) {
         return categoryService.insertCategory(category);
     }
 

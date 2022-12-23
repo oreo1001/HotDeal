@@ -29,9 +29,9 @@ public class CategoryController {
         return productService.getProductByCategory(categoryName);
     }
 
-    @PostMapping("insert")
-    public ResponseEntity<Map<String,Object>> insertCategory(@RequestBody @Valid Category category) {
-        return categoryService.insertCategory(category);
+    @PostMapping("save")
+    public ResponseEntity<Map<String,Object>> saveCategory(@RequestBody @Valid Category category) {
+        return categoryService.saveCategory(category);
     }
 
     @GetMapping("name")

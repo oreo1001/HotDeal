@@ -16,9 +16,9 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("insert")
-    public ResponseEntity<Map<String,Object>> insertProduct (@RequestBody @Valid Product product){
-        return productService.insert(product);
+    @PostMapping("save")
+    public ResponseEntity<Map<String,Object>> saveProduct (@RequestBody @Valid Product product){
+        return productService.save(product);
     }
 
     @PostMapping("{productId}/click")

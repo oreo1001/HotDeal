@@ -15,10 +15,10 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ResponseEntity<Map<String, Object>> insert(Product product){
+    public ResponseEntity<Map<String, Object>> save(Product product){
         Map<String, Object> responseJson = new HashMap<>();
         responseJson.put("Message", "product db에 잘들어간듯!");
-        productRepository.insert(product);
+        productRepository.save(product);
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
     public ResponseEntity<Map<String, Object>> getAllProducts() {

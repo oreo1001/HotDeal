@@ -18,10 +18,10 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public ResponseEntity<Map<String, Object>> insertCategory(Category category) {
+    public ResponseEntity<Map<String, Object>> saveCategory(Category category) {
         Map<String, Object> responseJson = new HashMap<>();
+        categoryRepository.save(category);
         responseJson.put("Message", "category db에 잘들어간듯!");
-        categoryRepository.insert(category);
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 

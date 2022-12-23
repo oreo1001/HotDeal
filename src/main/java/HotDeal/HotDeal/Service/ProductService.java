@@ -30,13 +30,11 @@ public class ProductService {
 
     public ResponseEntity<Map<String, Object>> getProductsByCategory(String categoryName) {
         Map<String, Object> responseJson = new HashMap<>();
-        System.out.println(productRepository.findByCategoryName(categoryName));
         if (productRepository.findByCategoryName(categoryName) == null) {
             responseJson.put("result", productRepository.findByCategoryName(categoryName));
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
         }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
         //responseJson.put("result", productRepository.findByCategoryName(categoryName));
-        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
     public ResponseEntity<Map<String, Object>> clickProduct(String productId) {

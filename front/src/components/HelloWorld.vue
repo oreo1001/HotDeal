@@ -5,7 +5,7 @@
         <v-img
           :src="require('../assets/logo.svg')"
           class="my-3"
-          contain
+          containp
           height="200"
         />
       </v-col>

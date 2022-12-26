@@ -27,7 +27,7 @@
   
 <script>
 import axios from 'axios'
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 
 export default {
   name: 'CategoryList',
@@ -35,13 +35,7 @@ export default {
   setup() {
     let counter = ref(0)
 
-    let categoryNames = ref([])
-
-    
-    axios.get('/api/category/names')
-    .then(res => {
-      categoryNames.value = res.data['result']
-    })
+    const categoryNames = inject('categoryNames')
 
     const onClick = (evt) => {
       if (evt) {

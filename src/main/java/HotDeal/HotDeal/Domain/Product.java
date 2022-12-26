@@ -22,5 +22,5 @@ public class Product {
     private String imageUrl;
     private String categoryName;
     private String link;
-    private int click;
+    private int clickCount;
 }

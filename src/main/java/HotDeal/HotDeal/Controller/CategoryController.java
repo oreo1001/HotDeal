@@ -18,6 +18,11 @@ public class CategoryController {
     private final ProductService productService;
     private final CategoryService categoryService;
 
+    @GetMapping("test")
+    public  ResponseEntity<String> test() {
+        return ResponseEntity.ok("Deploy Success");
+    }
+
     @GetMapping("all")
     public ResponseEntity<Map<String, Object>> getAllProducts() {
         return productService.getAllProducts();
@@ -37,4 +42,10 @@ public class CategoryController {
     public ResponseEntity<Map<String, Object>> getCategoryNames() {
         return categoryService.getAllCategory();
     }
+
+    @GetMapping("{categoryId}/click")
+    public ResponseEntity<Map<String, Object>> clickCategory(@PathVariable String categoryId) {
+        return categoryService.clickCategory(categoryId);
+    }
+
 }

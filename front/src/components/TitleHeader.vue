@@ -4,16 +4,26 @@
       <v-col align-self="end">
         Global HotDeal
       </v-col>
+      <v-col align-self="end">
+        Global HotDeal
+      </v-col>
     </v-row>
   </v-container>
 </template>
-
-<script>
-export default {
+  
+  <script>
+  export default {
     name: 'TitleHeader',
-    
-    setup() {
-        
-    },
-}
-</script>
+    components: {}, 
+    setup() {}, 
+    data() {
+      return {
+        sampleData: ''
+      }
+    }, 
+    created() {},
+    mounted() {}, 
+    unmounted() {},
+    methods: {}
+  }
+  </script>

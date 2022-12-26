@@ -2,7 +2,7 @@ import axios from'axios'
 
 export default function() {
   const BASE_URL = 'http://localhost:8000'
-  const axiosGet = (URL, onSuccess = null, onFaildd = null) => {
+  const axiosGet = (URL, onSuccess = null, onFailed = null) => {
     const final_URL = URL.startsWith('http') ? URL : BASE_URL + URL
     axios.get(final_URL).then((resp) => {
       if (resp.status === 200 && resp.data.rsp === 'ok') {

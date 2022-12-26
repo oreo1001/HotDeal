@@ -2,25 +2,39 @@
   <v-app>
     <v-main>
       <TitleHeader />
-      <HelloWorld />
+      <CategoryList />
+      <ProductContainer />
+      <ProductList />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import TitleHeader from './components/TitleHeader.vue';
+import CategoryList from './components/CategoryList.vue';
+import ProductContainer from './components/ProductContainer.vue';
+import ProductList from './components/ProductList.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-    TitleHeader
-  },
+    TitleHeader,
+    CategoryList,
+    ProductContainer,
+    ProductList
+},
 
-  data: () => ({
-    //
-  }),
+  setup() {
+
+    // const categoryNames = ref([])
+
+
+    // axios.get('/api/category/names')
+    // .then(res => {
+
+    // })
+  },
 }
 </script>

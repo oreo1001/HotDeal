@@ -18,6 +18,11 @@ public class CategoryController {
     private final ProductService productService;
     private final CategoryService categoryService;
 
+    @GetMapping("test")
+    public  ResponseEntity<String> test() {
+        return ResponseEntity.ok("Deploy Success");
+    }
+
     @GetMapping("all")
     public ResponseEntity<Map<String, Object>> getAllProducts() {
         return productService.getAllProducts();

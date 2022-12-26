@@ -14,4 +14,5 @@ public class Category {
     private String id;
     @Size(min = 2, max = 20, message = "길이는 2~20로")
     private String name;
+    private int clickCount;
 }

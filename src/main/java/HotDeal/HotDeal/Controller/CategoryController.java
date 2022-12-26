@@ -37,4 +37,10 @@ public class CategoryController {
     public ResponseEntity<Map<String, Object>> getCategoryNames() {
         return categoryService.getAllCategory();
     }
+
+    @GetMapping("{categoryId}/click")
+    public ResponseEntity<Map<String, Object>> clickCategory(@PathVariable String categoryId) {
+        return categoryService.clickCategory(categoryId);
+    }
+
 }

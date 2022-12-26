@@ -1,6 +1,7 @@
 package HotDeal.HotDeal.Service;
 
 import HotDeal.HotDeal.Domain.Category;
+import HotDeal.HotDeal.Domain.Product;
 import HotDeal.HotDeal.Repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,5 +28,23 @@ public class CategoryService {
         Map<String, Object> responseJson = new HashMap<>();
         responseJson.put("result", categoryRepository.findAll());
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
+    }
+    public ResponseEntity<Map<String, Object>> clickCategory(String categoryId) {
+        //id는 겹칠 수 없으므로 (기본키) 한 페이지만 나온다.
+        Map<String, Object> responseJson = new HashMap<>();
+        Category category;
+
+        if (categoryRepository.findById(categoryId).isEmpty()) {
+            responseJson.put("errorMessage", "categoryId = " + categoryId + "를 가지는 category가 없습니다");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
+        } else category = categoryRepository.findById(categoryId).get();
+        plusCount(category);
+        responseJson.put("result", category); //Product 페이지 정보를 가져온다. (link 가져오고 상품디테일)
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
+    }
+
+    public void plusCount(Category category){
+        category.setClickCount(category.getClickCount() + 1);
+        categoryRepository.save(category);
     }
 }

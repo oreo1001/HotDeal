@@ -52,7 +52,7 @@ public class ProductService {
     }
 
     public void plusCount(Product product){
-        product.setClick(product.getClick() + 1);
+        product.setClickCount(product.getClickCount() + 1);
         productRepository.save(product);
     }
 

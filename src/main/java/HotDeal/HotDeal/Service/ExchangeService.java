@@ -20,7 +20,6 @@ public class ExchangeService {
     public ResponseEntity<Map<String, Object>> getAllExchangeRate() {
 
         Map<String, Object> responseJson = new HashMap<>();
-        ExchangeRate exchangeRate;
 
         List<ExchangeRate> exchangeRates = exchangeRepository.findAll();
 

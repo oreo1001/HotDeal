@@ -19,12 +19,12 @@ public class CategoryService {
     public ResponseEntity<Map<String, Object>> saveCategory(Category category) {
         Map<String, Object> responseJson = new HashMap<>();
         categoryRepository.save(category);
-        responseJson.put("Message", "category db에 잘들어간듯!");
+        responseJson.put("Message", "DB에 Category 추가 성공");
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
     public ResponseEntity<Map<String, Object>> clickCategory(String categoryId) {
-        //id는 겹칠 수 없으므로 (기본키) 한 페이지만 나온다.
+
         Map<String, Object> responseJson = new HashMap<>();
         Category category;
 

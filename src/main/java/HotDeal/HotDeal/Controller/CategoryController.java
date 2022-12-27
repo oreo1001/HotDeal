@@ -31,10 +31,10 @@ public class CategoryController {
     @GetMapping("{categoryName}/list")
     public ResponseEntity<Map<String, Object>> getProductsByCategory(@PathVariable("categoryName") String categoryName) {
         if (categoryName.equals("all")) return productService.getAllProducts();
-        else return productService.getProductsByCategory(categoryName);
+        else return productService.getProductsByCategoryName(categoryName);
     }
 
-    @GetMapping("{categoryId}/click")
+    @PostMapping("{categoryId}/click")
     public ResponseEntity<Map<String, Object>> clickCategory(@PathVariable String categoryId) {
         return categoryService.clickCategory(categoryId);
     }

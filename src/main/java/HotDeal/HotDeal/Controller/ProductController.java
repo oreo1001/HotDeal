@@ -21,7 +21,7 @@ public class ProductController {
         return productService.saveProduct(product);
     }
 
-    @GetMapping("{productId}/click")
+    @PostMapping("{productId}/click")
     public ResponseEntity<Map<String, Object>> clickProduct(@PathVariable String productId) {
         return productService.clickProduct(productId);
     }

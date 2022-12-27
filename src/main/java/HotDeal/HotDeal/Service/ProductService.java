@@ -17,30 +17,30 @@ public class ProductService {
 
     public ResponseEntity<Map<String, Object>> saveProduct(Product product) {
         Map<String, Object> responseJson = new HashMap<>();
-        responseJson.put("Message", "product db에 잘들어간듯!");
+        responseJson.put("Message", "DB에 Product 추가 성공");
         productRepository.save(product);
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
     public ResponseEntity<Map<String, Object>> getAllProducts() {
         Map<String, Object> responseJson = new HashMap<>();
-        System.out.println("getAllProducts 실행되었음");
         responseJson.put("result", productRepository.findAll());
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
-    public ResponseEntity<Map<String, Object>> getProductsByCategory(String categoryName) {
+    public ResponseEntity<Map<String, Object>> getProductsByCategoryName(String categoryName) {
         Map<String, Object> responseJson = new HashMap<>();
-        if (productRepository.findByCategoryName(categoryName) == null) {
-            responseJson.put("result", productRepository.findByCategoryName(categoryName));
+        List<Product> productList = productRepository.findByCategoryName(categoryName);
+        if (productList == null) {
+            responseJson.put("result", "categoryName = " + categoryName + "를 가지는 category가 없습니다");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
         }
-        else responseJson.put("result", productRepository.findByCategoryName(categoryName));
+        else responseJson.put("result", productList);
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
     public ResponseEntity<Map<String, Object>> clickProduct(String productId) {
-        //id는 겹칠 수 없으므로 (기본키) 한 페이지만 나온다.
+
         Map<String, Object> responseJson = new HashMap<>();
         Product product;
 
@@ -49,7 +49,7 @@ public class ProductService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
         } else product = productRepository.findById(productId).get();
         plusCount(product);
-        responseJson.put("result", product); //Product 페이지 정보를 가져온다. (link 가져오고 상품디테일)
+        responseJson.put("result", product); // Product 페이지 정보를 가져온다. (link 가져오고 상품디테일)
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
@@ -57,12 +57,4 @@ public class ProductService {
         product.setClickCount(product.getClickCount() + 1);
         productRepository.save(product);
     }
-
-    /*
-    public ResponseEntity<Map<String, Object>> makeResponse(String message, Object object){
-        Map<String, Object> responseJson = new HashMap<>();
-        responseJson.put(message, object);
-        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
-    }
-    */
 }

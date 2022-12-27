@@ -14,16 +14,10 @@
   <script>
   export default {
     name: 'TitleHeader',
-    components: {}, 
-    setup() {}, 
     data() {
       return {
         sampleData: ''
       }
-    }, 
-    created() {},
-    mounted() {}, 
-    unmounted() {},
-    methods: {}
+    },
   }
   </script>

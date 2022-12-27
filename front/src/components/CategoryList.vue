@@ -7,18 +7,7 @@
         class="align-center"
         @click="onClick"
       >
-        <div class="text-center">
-          <v-card>
-            <v-img 
-              class="bg-white"
-              :aspect-ratio="1"
-              src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-            />
-            <!-- <h1>이미지 들어갈 곳</h1> -->
-            <h3> {{ category['name'] }}</h3>
-            <h3> {{ counter }}</h3>
-          </v-card>
-        </div>
+        <CategoryButton :category-name="카테고리이름" />
       </v-col>
     </v-row>
   </v-container>
@@ -26,13 +15,22 @@
 
   
 <script>
-import axios from 'axios'
 import { inject, ref } from 'vue'
+import CategoryButton from './CategoryButton.vue'
 
 export default {
   name: 'CategoryList',
-  components: {}, 
+
+  components: {
+    CategoryButton
+  },
+
   setup() {
+
+    currentCategory: ""
+
+    categoryNames: []
+
     let counter = ref(0)
 
     const categoryNames = inject('categoryNames')
@@ -48,6 +46,12 @@ export default {
       categoryNames,
       onClick
     }
-  }, 
+  },
+  
+  async created() {
+    await this.$store.dispatch("GetProductListApi/FETCH_PRODUCTLIST_API")
+    this.currentCategory = this.$store.state.GetProductListApi.currentCategory
+    this.categoryNames = this.$store.state.GetProductListApi.categoryNames
+  }
 }
 </script>

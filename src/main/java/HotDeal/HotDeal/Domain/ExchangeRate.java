@@ -10,5 +10,6 @@ public class ExchangeRate {
 
     @Id
     private String id;
+    private String name;
     private Double exchangeRate;
 }

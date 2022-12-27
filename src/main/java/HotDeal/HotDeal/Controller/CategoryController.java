@@ -23,24 +23,15 @@ public class CategoryController {
         return ResponseEntity.ok("Deploy Success");
     }
 
-    @GetMapping("all")
-    public ResponseEntity<Map<String, Object>> getAllProducts() {
-        return productService.getAllProducts();
-    }
-
-    @GetMapping("{categoryName}/list")
-    public ResponseEntity<Map<String, Object>> getProductsByCategory(@PathVariable("categoryName") String categoryName) {
-        return productService.getProductsByCategory(categoryName);
-    }
-
     @PostMapping("save")
     public ResponseEntity<Map<String, Object>> saveCategory(@RequestBody @Valid Category category) {
         return categoryService.saveCategory(category);
     }
 
-    @GetMapping("names")
-    public ResponseEntity<Map<String, Object>> getCategoryNames() {
-        return categoryService.getAllCategory();
+    @GetMapping("{categoryName}/list")
+    public ResponseEntity<Map<String, Object>> getProductsByCategory(@PathVariable("categoryName") String categoryName) {
+        if (categoryName.equals("all")) return productService.getAllProducts();
+        else return productService.getProductsByCategory(categoryName);
     }
 
     @GetMapping("{categoryId}/click")

@@ -1,11 +1,19 @@
 <template>
-  <v-container class="bg-surface-variant">
-    <v-row align="center">
-      <v-col align-self="end">
-        Global HotDeal
-      </v-col>
-      <v-col align-self="end">
-        Global HotDeal
+  <v-container
+    align="center"
+    class="border=5px"
+  >
+    <v-row>
+      <v-col>
+        <h1 class="font-weight-black">
+          Global Hotdeal
+        </h1>
+        <h3 class="font-weight-regular">
+          전세계 핫딜
+        </h3>
+        <h4 class="font-weight-regular">
+          Amazon, AliExpress, eBay의 핫딜을 모았어요
+        </h4>
       </v-col>
     </v-row>
   </v-container>
@@ -14,10 +22,5 @@
   <script>
   export default {
     name: 'TitleHeader',
-    data() {
-      return {
-        sampleData: ''
-      }
-    },
   }
   </script>

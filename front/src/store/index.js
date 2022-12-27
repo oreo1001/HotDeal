@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
-import GetCategoryListApi from './GetCategoryListApi'
+import GetProductListApi from './GetProductListApi'
 
-export default store = createStore({
+export default createStore({
   modules: {
-    GetCategoryListApi
+    GetProductListApi
   }
 })

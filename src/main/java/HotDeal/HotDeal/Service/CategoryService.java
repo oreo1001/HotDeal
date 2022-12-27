@@ -1,7 +1,6 @@
 package HotDeal.HotDeal.Service;
 
 import HotDeal.HotDeal.Domain.Category;
-import HotDeal.HotDeal.Domain.Product;
 import HotDeal.HotDeal.Repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,11 +23,6 @@ public class CategoryService {
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
-    public ResponseEntity<Map<String, Object>> getAllCategory() {
-        Map<String, Object> responseJson = new HashMap<>();
-        responseJson.put("result", categoryRepository.findAll());
-        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
-    }
     public ResponseEntity<Map<String, Object>> clickCategory(String categoryId) {
         //id는 겹칠 수 없으므로 (기본키) 한 페이지만 나온다.
         Map<String, Object> responseJson = new HashMap<>();

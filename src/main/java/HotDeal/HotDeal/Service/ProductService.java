@@ -24,6 +24,7 @@ public class ProductService {
 
     public ResponseEntity<Map<String, Object>> getAllProducts() {
         Map<String, Object> responseJson = new HashMap<>();
+        System.out.println("getAllProducts 실행되었음");
         responseJson.put("result", productRepository.findAll());
         return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
@@ -32,9 +33,10 @@ public class ProductService {
         Map<String, Object> responseJson = new HashMap<>();
         if (productRepository.findByCategoryName(categoryName) == null) {
             responseJson.put("result", productRepository.findByCategoryName(categoryName));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseJson);
-        //responseJson.put("result", productRepository.findByCategoryName(categoryName));
+        else responseJson.put("result", productRepository.findByCategoryName(categoryName));
+        return ResponseEntity.status(HttpStatus.OK).body(responseJson);
     }
 
     public ResponseEntity<Map<String, Object>> clickProduct(String productId) {

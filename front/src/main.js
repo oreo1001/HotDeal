@@ -1,15 +1,23 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 // import router from './router'
-// import store from './store'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
-// import { store } from './store/index.js'
+import store from './store/index.js';
 
 loadFonts()
 
-createApp(App)
-  .use(vuetify)
+const app = createApp(App)
+
+var categoryMap = new Map();
+categoryMap.set('fashion_beauty', '패선 / 뷰티')
+categoryMap.set('furniture_living', '가구 / 생활')
+categoryMap.set('homeAppliances_computers', '가전 / 컴퓨터')
+categoryMap.set('travel_car', '여행 / 자동차')
+
+app.config.globalProperties.$categoryMap = categoryMap
+
+app.use(vuetify)
   // .use(router)
-  // .use(store)
+  .use(store)
   .mount('#app')

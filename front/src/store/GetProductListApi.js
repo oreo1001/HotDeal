@@ -8,7 +8,6 @@ export default {
   state: {
 
     currentCategory: 'all',
-    categoryNames: ['패션 / 뷰티', '가구 / 생활', '가전 / 컴퓨터', '여행 / 자동차'],
     productList: [],
 
   },

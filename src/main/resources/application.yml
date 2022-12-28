@@ -4,9 +4,9 @@ spring:
       host: localhost
       port: 27017
       database: hotdeal
-#      username: taptorestart
-#      password: thisispass
-#      authentication-database: admin
+      username: taptorestart
+      password: thisispass
+      authentication-database: admin
 
 server:
   port: 8080

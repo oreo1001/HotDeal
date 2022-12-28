@@ -3,8 +3,9 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      # 아래는 배포할 때만
-#      database: hotdeal
+      database: hotdeal
+
+#      아래는 배포할 때만
 #      username: taptorestart
 #      password: thisispass
 #      authentication-database: admin

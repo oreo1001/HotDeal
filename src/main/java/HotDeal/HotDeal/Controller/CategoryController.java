@@ -14,6 +14,7 @@ import java.util.Map;
 @RequestMapping("category")
 @RequiredArgsConstructor
 public class CategoryController {
+    //test
 
     private final ProductService productService;
     private final CategoryService categoryService;
